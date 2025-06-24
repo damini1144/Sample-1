@@ -106,8 +106,7 @@ section p {
 
 .card img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: auto;  /* ✅ Changed for mobile */
   border-radius: 6px;
 }
 
@@ -142,7 +141,6 @@ footer {
   font-size: 0.9rem;
 }
 
-/* WhatsApp Floating Icon with Contact Us Text */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -160,12 +158,17 @@ footer {
   color: white;
   font-weight: bold;
   text-decoration: none;
+  font-size: 1rem;
+}
+
+.contact-text {
+  display: inline;
+  margin-right: 10px;
 }
 
 .whatsapp-icon {
   width: 32px;
   height: 32px;
-  margin-left: 10px;
 }
 
 /* Blink Glow Effect */
@@ -178,9 +181,18 @@ footer {
   }
 }
 
-/* Responsive: Hide "Contact Us" text on mobile */
+/* Responsive: Hide Contact Us on mobile */
 @media (max-width: 768px) {
   .contact-text {
     display: none;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
