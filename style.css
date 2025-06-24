@@ -82,13 +82,20 @@ section p {
   line-height: 1.7;
 }
 
-/* Cards layout */
+/* Cards layout (Global rule for all sections) */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
   margin-top: 3rem;
   align-items: stretch;
+  justify-items: center;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card {
@@ -98,6 +105,8 @@ section p {
   padding: 2rem;
   text-align: center;
   transition: transform 0.3s ease;
+  max-width: 500px;
+  width: 100%;
 }
 
 .card:hover {
@@ -106,7 +115,8 @@ section p {
 
 .card img {
   width: 100%;
-  height: auto;  /* ✅ Changed for mobile */
+  height: 200px;
+  object-fit: cover;
   border-radius: 6px;
 }
 
@@ -141,37 +151,31 @@ footer {
   font-size: 0.9rem;
 }
 
+/* WhatsApp Floating Icon with Contact Us text (Desktop Only) */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  height: 60px;
   background-color: #25d366;
   border-radius: 50px;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 20px;
-  z-index: 1000;
-  animation: blink-glow 1.5s infinite;
   box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 1rem;
+  animation: blink-glow 1.5s infinite;
+  z-index: 1000;
 }
 
-.contact-text {
-  display: inline;
+.whatsapp-float img {
+  width: 30px;
+  height: 30px;
   margin-right: 10px;
 }
 
-.whatsapp-icon {
-  width: 32px;
-  height: 32px;
-}
-
-/* Blink Glow Effect */
 @keyframes blink-glow {
   0%, 100% {
     box-shadow: 0 0 10px rgba(37, 211, 102, 0.6);
@@ -181,18 +185,16 @@ footer {
   }
 }
 
-/* Responsive: Hide Contact Us on mobile */
+/* Hide text in mobile view */
 @media (max-width: 768px) {
-  .contact-text {
+  .whatsapp-float {
+    border-radius: 50%;
+    padding: 15px;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+  }
+  .whatsapp-float span {
     display: none;
-  }
-
-  .container {
-    padding: 1rem;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
 }
