@@ -142,26 +142,30 @@ footer {
   font-size: 0.9rem;
 }
 
-/* WhatsApp Floating Icon with Green Blink */
+/* WhatsApp Floating Icon with Contact Us Text */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 60px;
   height: 60px;
   background-color: #25d366;
-  border-radius: 50%;
+  border-radius: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 20px;
   z-index: 1000;
   animation: blink-glow 1.5s infinite;
   box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .whatsapp-icon {
   width: 32px;
   height: 32px;
+  margin-left: 10px;
 }
 
 /* Blink Glow Effect */
@@ -171,5 +175,12 @@ footer {
   }
   50% {
     box-shadow: 0 0 20px rgba(37, 211, 102, 1);
+  }
+}
+
+/* Responsive: Hide "Contact Us" text on mobile */
+@media (max-width: 768px) {
+  .contact-text {
+    display: none;
   }
 }
