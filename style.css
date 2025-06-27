@@ -1,4 +1,4 @@
-/* Reset & base styling */
+/* Reset & Base Styling */
 * {
   margin: 0;
   padding: 0;
@@ -16,19 +16,36 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  width: 100%;
 }
 
-/* Header styling */
+/* ===== HEADER ===== */
 header {
-  background: linear-gradient(to right, #1a2980, #26d0ce);
-  color: white;
-  padding: 10rem 5rem;
+  background: linear-gradient(to right, #1a2980, #26d0ce), url('header-bg.jpg') center/cover no-repeat;
+  color: #fff;
   text-align: center;
+  padding: 8rem 2rem;
+  position: relative;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+header h1,
+header p,
+header a {
+  position: relative;
+  z-index: 1;
 }
 
 header h1 {
   font-size: 3rem;
-  margin-bottom: 10rem;
+  margin-bottom: 2rem;
 }
 
 header p {
@@ -37,12 +54,13 @@ header p {
   margin: 0 auto;
 }
 
+/* ===== BUTTON STYLING ===== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-top: 1.5rem;
-  padding: 1.4rem 6rem;   /*  ← wider: was 3rem, now 4.5rem  */
+  padding: 1.4rem 6rem;
   background-color: #12f337;
   color: #fff;
   text-decoration: none;
@@ -50,24 +68,30 @@ header p {
   font-weight: bold;
   font-size: 2.25rem;
   gap: 14px;
-  min-width: 420px;         /*  ← broader min width: was 340px  */
-  box-shadow: 0 0 14px rgba(18,243,55,0.6);
+  min-width: 420px;
+  box-shadow: 0 0 14px rgba(18, 243, 55, 0.6);
   transition: background 0.2s ease;
+  cursor: pointer;
 }
-
-
 
 .btn:hover {
   background-color: #d35400;
 }
 
-/* icon inside the green CTA button */
 .btn-icon {
   width: 32px;
   height: 32px;
 }
 
-/* optional: make the whole button blink/glow softly */
+.btn.blink {
+  animation: blink-button 1.5s infinite;
+}
+
+@keyframes blink-button {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
 .join-wa {
   animation: btnBlink 0.5s infinite ease-in-out;
 }
@@ -83,38 +107,7 @@ header p {
   }
 }
 
-/* ==== Header with Background Image & Overlay ==== */
-header{
-  /*  ⬇︎  put your own image file here */
-  background: url('header-bg.jpg') center/cover no-repeat;
-  color:#fff;
-  text-align:center;
-  padding:8rem 2rem;      /* a bit tighter than 10rem 5rem */
-  position:relative;      /* needed for the overlay */
-}
-
-/* dark overlay so text stays legible */
-header::before{
-  content:"";
-  position:absolute;
-  inset:0;                /* shorthand for top/left/right/bottom:0 */
-  background:rgba(0,0,0,.45);  /* change alpha for lighter/darker */
-  z-index:0;
-}
-
-/* keep heading / text above the overlay */
-header h1,
-header p,
-header a{
-  position:relative;
-  z-index:1;
-}
-
-/* optional—you may want a smaller gap */
-header h1{font-size:3rem;margin-bottom:2rem;}
-
-
-/* Section layout */
+/* ===== SECTIONS ===== */
 section {
   padding: 5rem 2rem;
 }
@@ -138,36 +131,41 @@ section h2 {
 section p {
   max-width: 800px;
   margin: 0 auto;
-  text-align: center;
   font-size: 1.1rem;
   line-height: 1.7;
+  text-align: center;
 }
 
-/* Cards layout (Global rule for all sections) */
+/* ===== CARDS ===== */
 .cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2.5rem;
   margin-top: 3rem;
   align-items: stretch;
   justify-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
   .cards {
     grid-template-columns: 1fr;
+    justify-items: center;
   }
 }
 
 .card {
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.08);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
   padding: 2rem;
   text-align: center;
   transition: transform 0.3s ease;
   max-width: 500px;
   width: 100%;
+  margin: 0 auto;
+  cursor: default;
 }
 
 .card:hover {
@@ -193,17 +191,17 @@ section p {
   line-height: 1.5;
 }
 
-/* Section-wide image */
+/* ===== SECTION IMAGE ===== */
 .section-image {
   max-width: 600px;
   width: 100%;
   margin: 2rem auto;
   display: block;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer */
+/* ===== FOOTER ===== */
 .footer {
   text-align: center;
   background-color: #111;
@@ -237,8 +235,7 @@ section p {
   text-decoration: underline;
 }
 
-
-/* WhatsApp Floating Icon with Contact Us text (Desktop Only) */
+/* ===== WHATSAPP FLOATING ICON ===== */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -272,7 +269,6 @@ section p {
   }
 }
 
-/* Hide text in mobile view */
 @media (max-width: 768px) {
   .whatsapp-float {
     border-radius: 50%;
@@ -281,20 +277,28 @@ section p {
     height: 60px;
     justify-content: center;
   }
+
   .whatsapp-float span {
     display: none;
   }
+
+  /* Adjust button sizes and layout on smaller screens */
+  .btn {
+    padding: 1rem 3rem;
+    font-size: 1.6rem;
+    min-width: 200px;
+    gap: 10px;
+  }
+
+  /* For the eduhelp and join free learning group buttons */
+  .btn.join-free-learning-group {
+    min-width: auto;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+  }
 }
 
-@keyframes blink-button {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-.btn.blink {
-  animation: blink-button 1.5s infinite;
-}
-
+/* ===== INSTRUCTOR SECTION ===== */
 .instructor-section {
   text-align: center;
   padding: 4rem 2rem;
@@ -313,7 +317,7 @@ section p {
   height: 250px;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .instructor-bio {
@@ -331,7 +335,7 @@ section p {
   line-height: 1.6;
 }
 
-/* Policy Page Enhancements (Privacy, Terms, etc.) */
+/* ===== POLICY PAGES ===== */
 .policy-container {
   max-width: 800px;
   margin: 0 auto;
@@ -360,7 +364,28 @@ section p {
   list-style-type: disc;
 }
 
-/* Mobile optimization */
+/* ===== MOBILE OPTIMIZATION ===== */
+@media (max-width: 768px) {
+  section {
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+  }
+
+  section h2,
+  section p {
+    padding: 0 1rem;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+
+  .card {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 600px) {
   .policy-container {
     padding: 1.5rem 1rem;
@@ -371,26 +396,3 @@ section p {
     font-size: 1.3rem;
   }
 }
-
-@media (max-width: 768px) {
-  section {
-    padding: 2.5rem 1.5rem;  /* smaller, responsive padding */
-    text-align: center;
-  }
-
-  section h2,
-  section p {
-    text-align: center;
-    padding: 0 1rem;
-  }
-
-  .container {
-    padding: 1.5rem;
-  }
-
-  .card {
-    margin: 0 auto;
-    width: 90%;
-  }
-}
-
