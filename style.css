@@ -444,3 +444,32 @@ button {
 button:hover {
   background-color: #009f8c;
 }
+
+.thank-you-container {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 40px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.thank-you-container h1 {
+  color: #4CAF50;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.thank-you-container p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.thank-you-container a {
+  text-decoration: none;
+  color: white;
+  background-color: #4CAF50;
+  padding: 10px 20px;
+  border-radius: 6px;
+}

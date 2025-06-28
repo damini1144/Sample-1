@@ -120,26 +120,35 @@
     </div>
   </section>
 
-  <section class="contact-section">
-  <form name="contact" netlify>
+  <section id="contact">
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+    <input type="hidden" name="form-name" value="contact" />
+    <p hidden>
+      <label>Don’t fill this out: <input name="bot-field" /></label>
+    </p>
+
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" name="name" id="name" placeholder="Enter your name" required />
     </div>
+
     <div class="form-group">
       <label for="phone">Mobile Number</label>
       <input type="tel" name="phone" id="phone" placeholder="Enter your mobile number" pattern="[0-9]{10}" required />
     </div>
+
     <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" placeholder="Enter your email" required />
+      <label for="email">Email <span style="font-weight: normal; font-size: 0.9em;">(optional)</span></label>
+      <input type="email" name="email" id="email" placeholder="Enter your email" />
     </div>
+
     <button type="submit">Send</button>
   </form>
 </section>
 
+
   <footer class="footer">
-  <p>&copy; 2025 Adst Stock Market Education.in | For Educational Purpose Only</p>
+  <p>&copy; 2025 Adst stock education.blog | For Educational Purpose Only</p>
   <ul class="footer-links">
     <li><a href="mailto:support@adst.blog">support@adst.blog</a></li> |
     <li><a href="/privacy-policy.html">Privacy Policy</a></li> | 
@@ -157,3 +166,12 @@
   <script defer src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
