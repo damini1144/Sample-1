@@ -396,3 +396,51 @@ section p {
     font-size: 1.3rem;
   }
 }
+  .contact-section {
+  background-color: #1e1e1e;
+  padding: 2rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  border-radius: 8px;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  padding: 0.6rem;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: #00bfa6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #009f8c;
+}
